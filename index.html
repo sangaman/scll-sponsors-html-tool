@@ -123,16 +123,16 @@
 
     <div class="container">
         <header>
-            <h1>SCLL Sponsor Manager Tool</h1>
+            <h1>SCLL Sponsors HTML Tool</h1>
         </header>
 
         <!-- Auth Connection Bar -->
         <div class="auth-bar">
             <div>
-                <strong>Google Drive Connection:</strong>
+                <strong>Google @spotsyll.org Account Connection:</strong>
                 <span id="authBadge" class="badge disconnected">Disconnected</span>
             </div>
-            <button id="authBtn" class="btn" style="width: auto; padding: 8px 15px; font-size: 0.85rem;" onclick="handleAuthClick()">Connect Google Drive</button>
+            <button id="authBtn" class="btn" style="width: auto; padding: 8px 15px; font-size: 0.85rem;" onclick="handleAuthClick()">Connect Google Account</button>
         </div>
 
         <div class="workspace">
@@ -175,7 +175,7 @@
                         <textarea id="sponsorText" placeholder="123 Main Street&#10;City, State Zip"></textarea>
                     </div>
 
-                    <button class="btn" onclick="processAddSponsor()">Upload Logo & Inject Into HTML</button>
+                    <button class="btn" onclick="processAddSponsor()">Upload Logo & Insert Into HTML</button>
                 </div>
 
                 <!-- REMOVE FORM -->
@@ -207,7 +207,7 @@
                 </div>
 
                 <div id="codeView" class="view-panel active">
-                    <textarea id="htmlOutputCode" class="code-output" placeholder="Paste your HTML here to start..." oninput="onCodeManualInput()"></textarea>
+                    <textarea id="htmlOutputCode" class="code-output" placeholder="Paste the HTML from the Current Sponsors page here..." oninput="onCodeManualInput()"></textarea>
                     <button class="btn" style="margin-top: 10px;" onclick="copyCodeToClipboard()">Copy Updated HTML Code</button>
                 </div>
 
@@ -265,7 +265,7 @@
         }
 
         function renderPreview() {
-            document.getElementById('livePreviewContainer').innerHTML = currentHTML || "<p style='color:#888; text-align:center; padding-top:50px;'>Preview will appear here once HTML is pasted or generated.</p>";
+            document.getElementById('livePreviewContainer').innerHTML = currentHTML || "<p style='color:#888; text-align:center; padding-top:50px;'>Preview will appear here once HTML is pasted.</p>";
         }
 
         function updateCodeOutput(newHtml) {
