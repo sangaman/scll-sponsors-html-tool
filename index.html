@@ -148,10 +148,10 @@
                     <div class="form-group">
                         <label for="addTier">Sponsor Level (Tier)</label>
                         <select id="addTier">
-                            <option value="home-run">Home Run Sponsor</option>
-                            <option value="triple">Triple Sponsor</option>
-                            <option value="double">Double Sponsor</option>
                             <option value="single">Single Sponsor</option>
+                            <option value="double">Double Sponsor</option>
+                            <option value="triple">Triple Sponsor</option>
+                            <option value="home-run">Home Run Sponsor</option>
                         </select>
                     </div>
 
@@ -369,7 +369,7 @@
                 body: JSON.stringify({ role: 'reader', type: 'anyone' })
             });
 
-            return `https://drive.google.com/uc?export=view&id=${fileId}`;
+            return `https://lh3.googleusercontent.com/d/${fileId}=s1000`;
         }
 
         // Process Add Sponsor
