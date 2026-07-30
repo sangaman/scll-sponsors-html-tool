@@ -123,7 +123,7 @@
 
     <div class="container">
         <header>
-            <h1>SCLL Sponsors HTML Tool</h1>
+            <h1>SCLL Sponsor Manager Tool</h1>
         </header>
 
         <!-- Auth Connection Bar -->
@@ -290,7 +290,7 @@
 
             tokenClient = google.accounts.oauth2.initTokenClient({
                 client_id: GOOGLE_CLIENT_ID,
-                scope: 'https://www.googleapis.com/auth/drive',
+                scope: 'https://www.googleapis.com/auth/drive.file',
                 callback: (resp) => {
                     if (resp.error) {
                         alert("Authentication error: " + resp.error);
@@ -348,7 +348,7 @@
             form.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
             form.append('file', file);
 
-            const response = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id', {
+            const response = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id&supportsAllDrives=true', {
                 method: 'POST',
                 headers: new Headers({ 'Authorization': 'Bearer ' + accessToken }),
                 body: form
@@ -363,7 +363,7 @@
             const fileId = fileData.id;
 
             // Make public
-            await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}/permissions`, {
+            await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}/permissions?supportsAllDrives=true`, {
                 method: 'POST',
                 headers: new Headers({ 'Authorization': 'Bearer ' + accessToken, 'Content-Type': 'application/json' }),
                 body: JSON.stringify({ role: 'reader', type: 'anyone' })
